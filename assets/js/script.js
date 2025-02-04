@@ -3,6 +3,12 @@ Author: Fly Code Innovation
 Author URL: http://flycodeinnovation.co.za
  */
 
+//Add this script to your HTML to block right-click context menu:
+document.addEventListener('contextmenu', (e) => {
+	e.preventDefault();
+	alert('Right-click is disabled!');
+  });
+
 jQuery.noConflict();
 jQuery(document).ready(function($){
 								

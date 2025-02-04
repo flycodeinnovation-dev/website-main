@@ -1,0 +1,34 @@
+# Force HTTPS
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Optional: Force www/non-www
+# Choose ONE of the following (uncomment):
+
+# 1. Redirect www to non-www
+RewriteCond %{HTTP_HOST} ^www\.flycodeinnovation\.co\.za [NC]
+RewriteRule ^(.*)$ https://flycodeinnovation.co.za/$1 [L,R=301]
+
+# 2. Redirect non-www to www
+# RewriteCond %{HTTP_HOST} ^flycodeinnovation\.co\.za [NC]
+# RewriteRule ^(.*)$ https://www.flycodeinnovation.co.za/$1 [L,R=301]
+
+# Enable HTTP Strict Transport Security (HSTS)
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+# Security Headers
+Header set X-Content-Type-Options "nosniff"
+Header set X-Frame-Options "SAMEORIGIN"
+Header set X-XSS-Protection "1; mode=block"
+Header set Referrer-Policy "strict-origin-when-cross-origin"
+Header set Content-Security-Policy "default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval';"
+
+# Disable directory browsing
+Options -Indexes
+
+# Block access to sensitive files
+<FilesMatch "\.(env|log|htaccess|htpasswd|ini|sql|sh)$">
+  Order allow,deny
+  Deny from all
+</FilesMatch>

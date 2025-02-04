@@ -1,5 +1,5 @@
 <?php
-$title = "Services";
+$title = "Partners";
 include ('./includes/header.php');
 ?>
 	<section class="w3l-inner-page-main">
@@ -9,7 +9,7 @@ include ('./includes/header.php');
 					<h2 class="hny-title text-center">Services</h2>
 					<ol class="breadcrumb mb-0">
 						<li class="breadcrumb-item"><a href="index.php">Home</a></li>
-						<li class="breadcrumb-item active" aria-current="page">Services</li>
+						<li class="breadcrumb-item active" aria-current="page">Partners</li>
 					</ol>
 				</nav>
 			</div>

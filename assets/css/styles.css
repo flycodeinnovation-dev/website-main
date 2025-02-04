@@ -7619,6 +7619,11 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
+  /** Prevent users from highlighting text **/
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
   background-color: #fff;
 }
 
